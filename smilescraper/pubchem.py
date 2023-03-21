@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver import ChromeOptions
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
@@ -29,9 +29,10 @@ def get_driver():
     try:
         # logging.info('Logging Started')
         # logging.info('Chrome Driver Starting')
-        option = webdriver.ChromeOptions()
+        option = Options()
         option.add_argument('--headless')
         option.add_argument('--no-sandbox')
+        option.add_argument('--disable-gpu')
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(options = option, service= service)
         return driver

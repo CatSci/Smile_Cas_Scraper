@@ -1,4 +1,5 @@
 selenium
+seleniumbase
 webdriver-manager
 sbase
 openpyxl
