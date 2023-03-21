@@ -31,8 +31,8 @@ def get_driver():
         option = webdriver.ChromeOptions()
         option.add_argument('--headless')
         option.add_argument('--no-sandbox')
-        service = Service(ChromeDriverManager(version = "111.0.5563.64").install())
-        driver = webdriver.Chrome(options = option)
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(options = option, service= service)
         return driver
     except Exception as e:
         # logging.error('Error Occured in loading Driver')
