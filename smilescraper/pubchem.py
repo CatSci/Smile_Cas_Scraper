@@ -19,15 +19,17 @@ logging.basicConfig(level=logging.INFO)
 
 WAIT_TIME = 3
 
+options = Options()
+options.add_argument('--disable-gpu')
+options.add_argument('--headless')
+
 def get_driver():
     """Start Selenium Chrome Driver
 
     Returns:
         driver: Chrome Driver
     """
-    options = Options()
-    options.add_argument('--disable-gpu')
-    options.add_argument('--headless')
+
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
     
