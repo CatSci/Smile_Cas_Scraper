@@ -28,8 +28,8 @@ def get_driver():
     option = webdriver.ChromeOptions()
     option.add_argument('--headless')
     option.add_argument('--no-sandbox')
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(options = option, service= service)
+    # service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=option)
     return driver
     # try:
     #     # logging.info('Logging Started')
