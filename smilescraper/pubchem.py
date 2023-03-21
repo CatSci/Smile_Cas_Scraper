@@ -25,24 +25,19 @@ def get_driver():
     Returns:
         driver: Chrome Driver
     """
-    option = webdriver.ChromeOptions()
-    option.add_argument('--headless')
-    option.add_argument('--no-sandbox')
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(options=option, service= service)
-    return driver
-    # try:
-    #     # logging.info('Logging Started')
-    #     # logging.info('Chrome Driver Starting')
-    #     option = webdriver.ChromeOptions()
-    #     option.add_argument('--headless')
-    #     option.add_argument('--no-sandbox')
-    #     service = Service(ChromeDriverManager().install())
-    #     driver = webdriver.Chrome(options = option, service= service)
-    #     return driver
-    # except Exception as e:
-    #     # logging.error('Error Occured in loading Driver')
-    #     raise CustomException(error_msg= e, error_detail= sys)
+
+    try:
+        # logging.info('Logging Started')
+        # logging.info('Chrome Driver Starting')
+        option = webdriver.ChromeOptions()
+        option.add_argument('--headless')
+        option.add_argument('--no-sandbox')
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(options = option, service= service)
+        return driver
+    except Exception as e:
+        # logging.error('Error Occured in loading Driver')
+        raise CustomException(error_msg= e, error_detail= sys)
 
 # def get_driver():
 #     """Start Selenium Chrome Driver
