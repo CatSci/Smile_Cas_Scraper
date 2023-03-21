@@ -25,20 +25,26 @@ def get_driver():
     Returns:
         driver: Chrome Driver
     """
+    options = Options()
+    options.add_argument('--disable-gpu')
+    options.add_argument('--headless')
+    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-    try:
-        # logging.info('Logging Started')
-        # logging.info('Chrome Driver Starting')
-        option = Options()
-        option.add_argument('--headless')
-        # option.add_argument('--no-sandbox')
-        option.add_argument('--disable-gpu')
-        service = Service(ChromeDriverManager().install())
-        driver = webdriver.Chrome(options = option, service= service)
-        return driver
-    except Exception as e:
-        # logging.error('Error Occured in loading Driver')
-        raise CustomException(error_msg= e, error_detail= sys)
+    
+
+    # try:
+    #     # logging.info('Logging Started')
+    #     # logging.info('Chrome Driver Starting')
+    #     option = Options()
+    #     option.add_argument('--headless')
+    #     # option.add_argument('--no-sandbox')
+    #     option.add_argument('--disable-gpu')
+    #     service = Service(ChromeDriverManager().install())
+    #     driver = webdriver.Chrome(options = option, service= service)
+    #     return driver
+    # except Exception as e:
+    #     # logging.error('Error Occured in loading Driver')
+    #     raise CustomException(error_msg= e, error_detail= sys)
 
 # def get_driver():
 #     """Start Selenium Chrome Driver
