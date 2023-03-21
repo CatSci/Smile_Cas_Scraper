@@ -31,7 +31,7 @@ def get_driver():
         # logging.info('Chrome Driver Starting')
         option = Options()
         option.add_argument('--headless')
-        option.add_argument('--no-sandbox')
+        # option.add_argument('--no-sandbox')
         option.add_argument('--disable-gpu')
         service = Service(ChromeDriverManager().install())
         driver = webdriver.Chrome(options = option, service= service)
